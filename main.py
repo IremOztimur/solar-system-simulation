@@ -1,5 +1,6 @@
 from planet import Planet
 from graphics import Graphics
+from random import randint
 import pygame
 import math
 
@@ -36,6 +37,11 @@ def	main():
 
 	planets = [sun, earth, mars, mercury, venus]
 
+	stars = [((randint(150, 200), randint(150, 200), randint(150, 200)), (randint(1, simulation.WIDTH), randint(1, simulation.HEIGHT)), randint(1, 2)) for _ in range(250)]
+	def draw_stars():
+		for star in stars:
+			pygame.draw.circle(simulation.WIN, star[0], star[1], star[2])
+
 	while gameOn:
 		clock.tick(60)
 		simulation.WIN.fill(BLACK)
@@ -47,6 +53,7 @@ def	main():
 				if event.key == pygame.K_ESCAPE:
 					gameOn = False
 		for planet in planets:
+			draw_stars()
 			planet.update_position(planets)
 			planet.render(simulation.WIN, simulation.WIDTH, simulation.HEIGHT)
 
