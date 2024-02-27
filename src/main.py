@@ -6,7 +6,6 @@ from mars import Mars
 from mercury import Mercury
 from venus import Venus
 import pygame
-import math
 
 pygame.init()
 
@@ -16,7 +15,7 @@ universe = Universe(800, 800)
 BLACK		= (0, 0, 0)
 
 def	main():
-	gameOn = True
+	gameOn: bool = True
 	clock = pygame.time.Clock()
 
 	sun = Sun()
@@ -25,7 +24,7 @@ def	main():
 	mercury = Mercury()
 	venus = Venus()
 
-	planets = [sun, earth, mars, mercury, venus]
+	planets: list[Planet] = [sun, earth, mars, mercury, venus]
 
 	while gameOn:
 		clock.tick(60)
