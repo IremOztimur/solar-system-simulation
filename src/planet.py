@@ -29,25 +29,25 @@ class Planet():
 		- attraction(other): Calculate gravitational forces between this planet and another.
 		- update_position(planets): Update the planet's position based on gravitational interactions.
 """
-	G = 6.67428e-11
-	AU = 149.6e6 * 1000
-	SCALE = 250 / AU
-	TIMESTEP = 3600 * 24 # Seconds in a one day
+	G: float = 6.67428e-11
+	AU: float = 149.6e6 * 1000
+	SCALE: float = 250 / AU
+	TIMESTEP: float = 3600 * 24 # Seconds in a one day
 
 
-	def __init__(self, x, y, radius, color, mass):
+	def __init__(self, x: int, y: int, radius: float, color: tuple[int, int, int], mass: float):
 		self.x = x
 		self.y = y
 		self.radius = radius
 		self.color = color
 		self.mass = mass
 
-		self.x_vel = 0
-		self.y_vel = 0
+		self.x_vel: float = 0
+		self.y_vel: float = 0
 
-		self.is_sun = False
-		self.distance_to_sun = 0
-		self.orbit = []
+		self.is_sun: bool = False
+		self.distance_to_sun: float = 0
+		self.orbit: list = []
 
 	def render(self, window, width, height):
 		x = self.x * self.SCALE + width / 2
