@@ -1,6 +1,5 @@
 import pygame
 import math
-import time
 
 
 class Planet():
@@ -102,4 +101,3 @@ class Planet():
 		self.x += self.x_vel * self.TIMESTEP
 		self.y += self.y_vel * self.TIMESTEP
 		self.orbit.append((self.x, self.y))
-
